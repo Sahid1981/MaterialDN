@@ -1,14 +1,14 @@
 import React from 'react';
 import { Appbar } from 'react-native-paper';
 import { getHeaderTitle } from '@react-navigation/elements'
-import SecondScreen from '../screens/secondScreen';
+import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 
 export default function CustomNavigationBar({
   navigation,
   route,
   options,
   back,
-}) {
+}: NativeStackHeaderProps) {
   const title = getHeaderTitle(options, route.name);
   return (
     <Appbar.Header>
