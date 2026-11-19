@@ -1,7 +1,7 @@
-import React from 'react';
 import { Appbar } from 'react-native-paper';
 import { getHeaderTitle } from '@react-navigation/elements'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+import { StyleSheet } from 'react-native';
 
 export default function CustomNavigationBar({
   navigation,
@@ -11,10 +11,16 @@ export default function CustomNavigationBar({
 }: NativeStackHeaderProps) {
   const title = getHeaderTitle(options, route.name);
   return (
-    <Appbar.Header>
+    <Appbar.Header style={styles.better}>
       {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
       <Appbar.Content title={title} />
       {!back ? <Appbar.Action icon="arrow-right" onPress={() => navigation.navigate('Second')} /> : null}
     </Appbar.Header>
   );
 }
+
+const styles = StyleSheet.create({
+  better: {
+    backgroundColor: '#0059ff',
+  },
+})
